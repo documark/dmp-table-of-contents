@@ -1,11 +1,8 @@
 {
   "name": "documark-table-of-contents",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Documark plugin for generating a table of contents.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mauvm/documark-table-of-contents"
@@ -24,8 +21,8 @@
   },
   "homepage": "https://github.com/mauvm/documark-table-of-contents",
   "dependencies": {
-    "documark-cache": "^0.1.0",
+    "documark-cache": "^0.2.0",
     "jade": "^1.9.2",
-    "xml2js": "^0.4.4"
+    "xml2js": "^0.4.5"
   }
 }

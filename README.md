@@ -20,4 +20,7 @@ Documark plugin for generating a table of contents.
 
 	The index `ul` will be automatically appended to the `tableofcontents` element.
 
-__Note:__ Chapters with a `.no-index` class will be removed from the index. This requires ZeptoJS or jQuery.
+__Note:__ Chapters with a `.no-index` class will be removed from the index. This requires [ZeptoJS][zeptojs] or [jQuery][jquery].
+
+[zeptojs]: http://zeptojs.com/
+[jquery]: http://jquery.com/

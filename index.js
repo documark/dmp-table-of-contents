@@ -1,8 +1,9 @@
-var fs     = require('fs');
-var path   = require('path');
-var xml2js = require('xml2js');
-var jade   = require('jade');
-var parser = new xml2js.Parser();
+var fs          = require('fs');
+var path        = require('path');
+var cacheHelper = require('documark-cache');
+var xml2js      = require('xml2js');
+var jade        = require('jade');
+var parser      = new xml2js.Parser();
 
 function toc2index(file) {
     var chapters = [];
@@ -42,10 +43,9 @@ function toc2index(file) {
 module.exports = function tableOfContents ($, document, cb) {
 	var options = document.config().pdf;
 	var $toc    = $('tableofcontents');
-	var hasTOC  = ($toc.length > 0);
 
-	if (hasTOC) {
-		var tocFilePath = document.helper('cache').filePath('toc.xml');
+	if ($toc.length > 0) {
+		var tocFilePath = cacheHelper(document).filePath('toc.xml');
 
 		var html = jade.renderFile(path.join(__dirname, 'assets/toc.jade'), {
 			chapters: toc2index(tocFilePath),
