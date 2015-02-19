@@ -6,7 +6,7 @@ This plugin uses wkhtmltopdf its `--dump-outline` flag to generate the chapter i
 which means that the table of contents is always one compilation behind.
 __Compiling twice will ensure you have the latest table of contents.__
 
-### Usage
+## Usage
 
 1. Install plugin with `npm install documark-table-of-contents --save`.
 
@@ -47,9 +47,17 @@ __Compiling twice will ensure you have the latest table of contents.__
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js')
 	```
 
-### Output
+## Configuration
 
-The final HTML structure will be something like this:
+The index depth can be configured with a `depth` attribute:
+
+```jade
+tableofcontents.no-index(depth=3)
+```
+
+## Output
+
+The final HTML structure will look something like this:
 
 ```html
 <tableofcontents class="no-index">
@@ -65,7 +73,7 @@ The final HTML structure will be something like this:
 			<ul class="index-2">
 				<li class="page-2">
 					<span class="chapter-title">2.1. Subchapter Z</span>
-					<span class="page-number">3</span>
+					<span class="page-number">2</span>
 				</li>
 			</ul>
 		</li>
