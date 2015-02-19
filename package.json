@@ -1,6 +1,6 @@
 {
   "name": "documark-table-of-contents",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Documark plugin for generating a table of contents.",
   "main": "index.js",
   "repository": {
