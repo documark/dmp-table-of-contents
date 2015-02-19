@@ -40,7 +40,7 @@ function toc2index(file) {
     return chapters;
 }
 
-module.exports = function tableOfContents ($, document, cb) {
+module.exports = function documarkTableOfContents ($, document, done) {
 	var options = document.config().pdf;
 	var $toc    = $('tableofcontents');
 
@@ -57,5 +57,5 @@ module.exports = function tableOfContents ($, document, cb) {
 		$.root().append('<script src="file://' + path.join(__dirname, 'assets/remove-invalid-chapters.js') + '"/>');
 	}
 
-	cb();
+	done();
 };
