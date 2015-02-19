@@ -41,11 +41,37 @@ __Compiling twice will ensure you have the latest table of contents.__
 		h3 Three
 	```
 
-	__Note:__ This requires [ZeptoJS][zeptojs] or [jQuery][jquery] in order to work:
+	__Note:__ This requires [ZeptoJS][zeptojs] or [jQuery][jquery] in order to work. Add this to your `document.jade`:
 
 	```jade
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js')
 	```
+
+### Output
+
+The final HTML structure will be something like this:
+
+```html
+<tableofcontents class="no-index">
+	<h1>Index</h1>
+	<ul class="index-1">
+		<li class="page-1">
+			<span class="chapter-title">1. Chapter X</span>
+			<span class="page-number">1</span>
+		</li>
+		<li class="page-2">
+			<span class="chapter-title">2. Chapter Y</span>
+			<span class="page-number">2</span>
+			<ul class="index-2">
+				<li class="page-2">
+					<span class="chapter-title">2.1. Subchapter Z</span>
+					<span class="page-number">3</span>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</tableofcontents>
+```
 
 [documark-chapter-numbering]: https://github.com/mauvm/documark-chapter-numbering
 [zeptojs]: http://zeptojs.com/
