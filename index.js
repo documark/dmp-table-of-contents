@@ -49,7 +49,7 @@ module.exports = function documarkTableOfContents ($, document, done) {
 
 		var html = jade.renderFile(path.join(__dirname, 'assets/toc.jade'), {
 			chapters: toc2index(tocFilePath),
-			depth: 3
+			depth: (parseInt($toc.attr('depth'), 10) || 3)
 		});
 
 		$toc.append(html);
