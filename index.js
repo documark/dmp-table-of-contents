@@ -9,7 +9,7 @@ function toc2index(file) {
     var chapters = [];
 
     if (fs.existsSync(file)) {
-        var data = fs.readFileSync(file, 'ascii');
+        var data = fs.readFileSync(file, 'UTF-8');
 
         function findItemsRecursively(holder, node) {
             if ( ! node.item) return;
