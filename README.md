@@ -20,11 +20,12 @@ __Compiling twice will ensure you have the latest table of contents.__
 3. Add the table of contents in `document.jade`:
 
 	```jade
-	tableofcontents.no-index
+	chapter.no-index
 		h1 Index
+		table-of-contents(depth=2)
 	```
 
-	The index element (`ul`) will be automatically appended to the `tableofcontents` element.
+	The index element (`ul`) will be automatically appended to the `table-of-contents` element.
 
 	__Note:__ This plugin does no chapter numbering, use the [chapter numbering][documark-chapter-numbering] plugin for this.
 
@@ -49,10 +50,10 @@ __Compiling twice will ensure you have the latest table of contents.__
 
 ## Configuration
 
-The index depth can be configured with a `depth` attribute:
+The index depth (default: 3) can be configured with a `depth` attribute:
 
 ```jade
-tableofcontents.no-index(depth=3)
+table-of-contents(depth=2)
 ```
 
 ## Output
@@ -60,25 +61,27 @@ tableofcontents.no-index(depth=3)
 The final HTML structure will look something like this:
 
 ```html
-<tableofcontents class="no-index">
+<chapter class="no-index">
 	<h1>Index</h1>
-	<ul class="index-1">
-		<li class="page-1">
-			<span class="chapter-title">1. Chapter X</span>
-			<span class="page-number">1</span>
-		</li>
-		<li class="page-2">
-			<span class="chapter-title">2. Chapter Y</span>
-			<span class="page-number">2</span>
-			<ul class="index-2">
-				<li class="page-2">
-					<span class="chapter-title">2.1. Subchapter Z</span>
-					<span class="page-number">2</span>
-				</li>
-			</ul>
-		</li>
-	</ul>
-</tableofcontents>
+	<table-of-contents depth="2">
+		<ul class="index-1">
+			<li class="page-1">
+				<span class="chapter-title">1. Chapter X</span>
+				<span class="page-number">1</span>
+			</li>
+			<li class="page-2">
+				<span class="chapter-title">2. Chapter Y</span>
+				<span class="page-number">2</span>
+				<ul class="index-2">
+					<li class="page-2">
+						<span class="chapter-title">2.1. Subchapter Z</span>
+						<span class="page-number">2</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</table-of-contents>
+</chapter>
 ```
 
 [documark-chapter-numbering]: https://github.com/mauvm/documark-chapter-numbering

@@ -7,7 +7,7 @@
 	function getOccurenceCount (text) {
 		return (occurences[text] = (occurences[text] || 0) + 1);
 	}
-	$('tableofcontents ul.index-1 li[title]').each(function () {
+	$('table-of-contents ul.index-1 li[title]').each(function () {
 		var $item      = $(this);
 		var headerType = 'h' + $item.data('index');
 		var text       = $item.attr('title');

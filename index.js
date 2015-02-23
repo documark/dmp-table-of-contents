@@ -42,7 +42,7 @@ function toc2index(file) {
 
 module.exports = function documarkTableOfContents ($, document, done) {
 	var options = document.config().pdf;
-	var $toc    = $('tableofcontents');
+	var $toc    = $('table-of-contents');
 
 	if ($toc.length > 0) {
 		var tocFilePath = cacheHelper(document).filePath('toc.xml');
