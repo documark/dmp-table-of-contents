@@ -40,7 +40,7 @@ function toc2index(file) {
     return chapters;
 }
 
-module.exports = function documarkTableOfContents ($, document, done) {
+module.exports = function dmpTableOfContents ($, document, done) {
 	var options = document.config().pdf;
 	var $toc    = $('table-of-contents');
 

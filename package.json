@@ -1,15 +1,15 @@
 {
-  "name": "documark-table-of-contents",
-  "version": "0.3.1",
+  "name": "dmp-table-of-contents",
+  "version": "0.3.2",
   "description": "Documark plugin for generating a table of contents.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mauvm/documark-table-of-contents"
+    "url": "https://github.com/mauvm/dmp-table-of-contents"
   },
   "keywords": [
-    "documark-plugin",
     "documark",
+    "documark-plugin",
     "table of contents",
     "index",
     "toc"
@@ -17,9 +17,9 @@
   "author": "Maurits van Mastrigt <maurits@nerdieworks.nl>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mauvm/documark-table-of-contents/issues"
+    "url": "https://github.com/mauvm/dmp-table-of-contents/issues"
   },
-  "homepage": "https://github.com/mauvm/documark-table-of-contents",
+  "homepage": "https://github.com/mauvm/dmp-table-of-contents",
   "dependencies": {
     "documark-cache": "^0.2.0",
     "jade": "^1.9.2",
