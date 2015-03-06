@@ -53,7 +53,7 @@ module.exports = function dmpTableOfContents ($, document, done) {
 		});
 
 		$toc.append(html);
-		$.root().append('<script src="file://' + path.join(__dirname, 'assets/update-index.js') + '"/>');
+		$('head').append('<script src="file://' + path.join(__dirname, 'assets/update-index.js') + '"/>');
 
 		options.dumpOutline = /*'file://' +*/ tocFilePath;
 	}
