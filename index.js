@@ -40,22 +40,65 @@ function toc2index(file) {
     return chapters;
 }
 
+function slugify (text) {
+	return text
+		.toLowerCase()
+		.replace(/[^\w]+/g, '-') // Replace invalid characters
+		.replace(/^-+|-+$/g, '') // Trim
+		;
+}
+
 module.exports = function dmpTableOfContents ($, document, done) {
-	var options = document.config().pdf;
-	var $toc    = $('table-of-contents');
+	var $tables = $('table-of-contents');
 
-	if ($toc.length > 0) {
+	if ($tables.length > 0) {
 		var tocFilePath = cacheHelper(document).filePath('toc.xml');
+		var chapters    = toc2index(tocFilePath);
 
-		var html = jade.renderFile(path.join(__dirname, 'assets/toc.jade'), {
-			chapters: toc2index(tocFilePath),
-			depth: (parseInt($toc.attr('depth'), 10) || 3)
+		document.config().pdf.dumpOutline = tocFilePath;
+
+		$tables.each(function () {
+			var $toc       = $(this);
+			var occurences = {};
+
+			var getOccurenceCount = function (text) {
+				return (occurences[text] = (occurences[text] || 0) + 1);
+			}
+
+			var $table = $(jade.renderFile(path.join(__dirname, 'assets/toc.jade'), {
+				chapters: toc2index(tocFilePath),
+				depth: (parseInt($toc.attr('depth'), 10) || 3)
+			}));
+
+			$toc.append($table);
+
+			$table.find('ul.index-1 li[title]').each(function () {
+				var $item      = $(this);
+				var headerType = 'h' + $item.attr('data-index');
+				var text       = $item.attr('title');
+				var occurence  = getOccurenceCount(text);
+				var $header    = $(headerType).filter(function () {
+					return $(this).text() === text;
+				}).eq(occurence - 1);
+
+				// Remove invalid chapters
+				if ( ! $header.length || $header.hasClass('no-index') || $header.parents('.no-index').length) {
+					$item.remove();
+					return;
+				}
+
+				// Determine unique ID
+				var id = slugify('chapter-' + text);
+
+				if (occurence > 1) {
+					id += '-' + occurence;
+				}
+
+				// Make index item clickable (jumps to chapter)
+				$header.attr('name', id);
+				$item.children('a').attr('href', '#' + id);
+			});
 		});
-
-		$toc.append(html);
-		$('body').append('<script src="file://' + path.join(__dirname, 'assets/update-index.js') + '"/>');
-
-		options.dumpOutline = /*'file://' +*/ tocFilePath;
 	}
 
 	done();

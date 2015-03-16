@@ -30,7 +30,7 @@ __Compiling twice will ensure you have the latest table of contents.__
 
 	The index element (`ul`) will be automatically appended to the `table-of-contents` element.
 
-	__Note:__ This plugin does no chapter numbering, use the [chapter numbering][dmp-chapter-numbering] plugin for this.
+	__Tip:__ Use the [chapter numbering plugin][dmp-chapter-numbering] for automatic chapter numbering.
 
 4. Additionally add a `.no-index` class to headers (or one of their parent elements) to skip the index:
 
@@ -45,12 +45,6 @@ __Compiling twice will ensure you have the latest table of contents.__
 		h3 Three
 	```
 
-	__Note:__ This requires [ZeptoJS][zeptojs] or [jQuery][jquery] in order to work. Add this to your `document.jade`:
-
-	```jade
-	script(src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js')
-	```
-
 ## Configuration
 
 The index depth (default: 3) can be configured with a `depth` attribute:
@@ -61,31 +55,29 @@ table-of-contents(depth=2)
 
 ## Output
 
-The final HTML structure will look something like this:
+The final structure will look like this:
 
-```html
-<chapter class="no-index">
-	<h1>Index</h1>
-	<table-of-contents depth="2">
-		<ul class="index-1">
-			<li class="page-1">
-				<span class="chapter-title">1. Chapter X</span>
-				<span class="page-number">1</span>
-			</li>
-			<li class="page-2">
-				<span class="chapter-title">2. Chapter Y</span>
-				<span class="page-number">2</span>
-				<ul class="index-2">
-					<li class="page-2">
-						<span class="chapter-title">2.1. Subchapter Z</span>
-						<span class="page-number">2</span>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</table-of-contents>
-</chapter>
+```jade
+chapter.no-index
+	h1 Index
+	table-of-contents(depth=2)
+		ul.index-1
+			li.page-1
+				a.chapter-link(href='#chapter-1-subject-x')
+					span.chapter-title 1. Subject X
+					span.page-number 1
+			li.page-2
+				a.chapter-link(href='#chapter-2-subject-y')
+					span.chapter-title 2. Subject Y
+					span.page-number 2
+				ul.index-2
+					li.page-2
+						a.chapter-link(href='#chapter-2-1-subject-z')
+							span.chapter-title 2.1. Subject Z
+							span.page-number 2
 ```
+
+__Note:__ Chapter anchors are the slugified title, prepended with `chapter-` and appended with `-2`, `-3`, etc. (if necessary).
 
 [dmp-chapter-numbering]: https://www.npmjs.com/package/dmp-chapter-numbering
 [zeptojs]: http://zeptojs.com/
