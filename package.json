@@ -1,6 +1,6 @@
 {
   "name": "dmp-table-of-contents",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "Documark plugin for generating a table of contents.",
   "main": "index.js",
   "repository": {
@@ -10,7 +10,6 @@
   "keywords": [
     "documark",
     "documark-plugin",
-    "table of contents",
     "index",
     "toc"
   ],
