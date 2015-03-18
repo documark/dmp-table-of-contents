@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mauvm/dmp-table-of-contents"
+    "url": "https://github.com/documark/dmp-table-of-contents"
   },
   "keywords": [
     "documark",
@@ -16,9 +16,9 @@
   "author": "Maurits van Mastrigt <maurits@nerdieworks.nl>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mauvm/dmp-table-of-contents/issues"
+    "url": "https://github.com/documark/dmp-table-of-contents/issues"
   },
-  "homepage": "https://github.com/mauvm/dmp-table-of-contents",
+  "homepage": "https://github.com/documark/dmp-table-of-contents",
   "dependencies": {
     "documark-cache": "^0.2.0",
     "jade": "^1.9.2",

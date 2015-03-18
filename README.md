@@ -1,7 +1,7 @@
 # Documark Table of Contents
 
 [![npm version](https://badge.fury.io/js/dmp-table-of-contents.svg)](http://badge.fury.io/js/dmp-table-of-contents)
-[![dependency status](https://david-dm.org/mauvm/dmp-table-of-contents.svg)](https://david-dm.org/mauvm)
+[![dependency status](https://david-dm.org/documark/dmp-table-of-contents.svg)](https://david-dm.org/documark/dmp-table-of-contents)
 
 > Documark plugin for generating a table of contents.
 
