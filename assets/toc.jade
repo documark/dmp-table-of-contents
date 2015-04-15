@@ -3,7 +3,9 @@ mixin tocChapters(chapters, index)
 		ul(class='index-#{index}')
 			- each chapter in chapters 
 				li(class='page-#{chapter.page}', title= chapter.title, data-index= index)
-					a.chapter-link
+					- var cls = 'chapter-link';
+					- if (chapter.title.match(/^\d/)) cls += ' has-number';
+					a(class=cls)
 						span.chapter-title= chapter.title
 						span.page-number= chapter.page
 					mixin tocChapters(chapter.subChapters, index + 1)
