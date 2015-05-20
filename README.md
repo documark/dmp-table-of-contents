@@ -13,7 +13,7 @@ __Compiling twice will ensure you have the latest table of contents.__
 
 1. Install plugin with `npm install dmp-table-of-contents --save`.
 
-2. Load plugin in document configuration:
+2. Load plugin in [document configuration][document-configuration]:
 
 	```yaml
 	plugins:
@@ -53,7 +53,7 @@ The index depth (default: 3) can be configured with a `depth` attribute:
 table-of-contents(depth=2)
 ```
 
-Use `startPageCountOn` in your document configuration to shift the displayed page numbers:
+Use `startPageCountOn` in your [document configuration][document-configuration] to shift the displayed page numbers:
 
 ```yaml
 startPageCountOn: 2   # to make 1 =>  2, 5 => 6, 6 => 7, etc.
@@ -86,6 +86,5 @@ chapter.no-index
 
 __Note:__ Chapter anchors are the slugified title, prepended with `chapter-` and appended with `-2`, `-3`, etc. (if necessary).
 
+[document-configuration]: https://github.com/documark/documark#configuration
 [dmp-chapter-numbering]: https://www.npmjs.com/package/dmp-chapter-numbering
-[zeptojs]: http://zeptojs.com/
-[jquery]: http://jquery.com/
