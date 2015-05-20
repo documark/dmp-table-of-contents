@@ -52,10 +52,12 @@ module.exports = function dmpTableOfContents ($, document, done) {
 	var $tables = $('table-of-contents');
 
 	if ($tables.length > 0) {
-		var tocFilePath = cacheHelper(document).filePath('toc.xml');
-		var chapters    = toc2index(tocFilePath);
+		var tocFilePath   = cacheHelper(document).filePath('toc.xml');
+		var config        = document.config();
+		var chapters      = toc2index(tocFilePath);
+		var pageIncrement = parseInt(config.startPageCountOn) - 1 || 0;
 
-		document.config().pdf.dumpOutline = tocFilePath;
+		config.pdf.dumpOutline = tocFilePath;
 
 		$tables.each(function () {
 			var $toc       = $(this);
@@ -63,11 +65,12 @@ module.exports = function dmpTableOfContents ($, document, done) {
 
 			var getOccurenceCount = function (text) {
 				return (occurences[text] = (occurences[text] || 0) + 1);
-			}
+			};
 
 			var $table = $(jade.renderFile(path.join(__dirname, 'assets/toc.jade'), {
 				chapters: toc2index(tocFilePath),
-				depth: (parseInt($toc.attr('depth'), 10) || 3)
+				depth: (parseInt($toc.attr('depth'), 10) || 3),
+				pageIncrement: pageIncrement,
 			}));
 
 			$toc.append($table);
