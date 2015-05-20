@@ -53,6 +53,13 @@ The index depth (default: 3) can be configured with a `depth` attribute:
 table-of-contents(depth=2)
 ```
 
+Use `startPageCountOn` in your document configuration to shift the displayed page numbers:
+
+```yaml
+startPageCountOn: 2   # to make 1 =>  2, 5 => 6, 6 => 7, etc.
+startPageCountOn: -3  # to make 1 => -3, 5 => 1, 6 => 2, etc.
+```
+
 ## Output
 
 The final structure will look like this:
